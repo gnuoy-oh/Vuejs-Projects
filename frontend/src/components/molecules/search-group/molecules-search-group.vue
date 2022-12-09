@@ -1,0 +1,36 @@
+<template>
+  <div class="search-group">
+    <div class="text-input-group text-input-group--lg">
+      <label for="search-inp1" class="hidden">검색어를 입력하세요.</label>
+      <input id="search-inp1" type="text" class="text-input-group__input" placeholder="검색어를 입력하세요." />
+      <button class="text-input-group__clear-button button" title="초기화">
+        <span class="hidden">초기화</span>
+        <svg class="svg-icon" aria-hidden="true">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+      <button title="검색" class="text-input-group__search-button button button--icon button--primary">
+        <span class="hidden">검색</span>
+        <svg class="svg-icon" aria-hidden="true">
+          <use xlink:href="#search"></use>
+        </svg>
+      </button>
+    </div>
+    <button class="button button--secondary button--lg" type="button">
+      <span class="button__text">상세 검색</span>
+    </button>
+    <div class="checkbox checkbox--lg">
+      <input class="checkbox__input" type="checkbox" id="search-group-inp2">
+      <label for="search-group-inp2" class="checkbox__label">AND 검색</label>
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default {
+  name: "molecules-search-group",
+
+
+};
+</script>

@@ -1,8 +1,8 @@
-import AtomCheckbox from "./atom-checkbox.vue";
+import MoleculesSearchGroup from "./molecules-search-group.vue";
 
 export default {
-    title: "Atoms/Checkbox",
-    components: AtomCheckbox,
+    title: "Molecules/SearchGroup",
+    components: MoleculesSearchGroup,
     decorators: [
         () => ({
             template:
@@ -12,14 +12,14 @@ export default {
 };
 
 export const Default = () => ({
-    components: { AtomCheckbox },
+    components: { MoleculesSearchGroup },
     template:
         `
       <div class="v-group">
         <div class="h-group">
           <strong class="storybook-group__title">size: lg</strong>
-          <atom-checkbox class="checkbox--lg" name="checkbox-test" checkboxId="checkbox1">
-          </atom-checkbox>
+          <molecules-search-group class="checkbox--lg" name="checkbox-test" checkboxId="checkbox1">
+          </molecules-search-group>
         </div>       
       </div>
     `

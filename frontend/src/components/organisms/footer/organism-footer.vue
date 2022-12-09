@@ -58,7 +58,7 @@
 import AtomButton from "../../atoms/button/atom-button.vue";
 
 export default {
-  name: "organism-header",
+  name: "organism-footer",
 
   components: { AtomButton },
 
