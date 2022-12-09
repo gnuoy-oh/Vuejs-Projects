@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -6,10 +8,29 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    "@storybook/preset-scss"
   ],
   "framework": "@storybook/vue3",
   "core": {
-    "builder": "@storybook/builder-webpack5"
-  }
+    "builder": "@storybook/builder-webpack5",
+  },
+
+  webpackFinal: async (config, { configType }) => {
+
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../src/'),
+    });
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.join(__dirname, '../src/'),
+      '@assets': path.join(__dirname, '../src/assets'),
+    }
+
+    // Return the altered config
+    return config;
+  },
 }

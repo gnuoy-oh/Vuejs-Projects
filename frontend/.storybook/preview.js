@@ -1,3 +1,6 @@
+import Vue from 'vue';
+import '!style-loader!css-loader!sass-loader!../src/assets/main.scss';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
