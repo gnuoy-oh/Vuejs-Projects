@@ -1,52 +1,40 @@
 import AtomButton from "./atom-button.vue";
 
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: "Example/Button",
-  component: AtomButton,
-  // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
-  argTypes: {
-    backgroundColor: { control: "color" },
-    onClick: {},
-    size: {
-      control: { type: "select" },
-      options: ["small", "medium", "large"]
-    }
-  }
+  title: "Atoms/Button",
+  components: AtomButton,
+  decorators: [
+    () => ({
+      template:
+          "<div class=\"storybook-container\"><h2 class=\"storybook-title\">다중 항목 선택 시 사용합니다.</h2><div class=\"storybook-group\"><story /></div></div>"
+    })
+  ]
 };
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
-const Template = args => ({
-  // Components used in your story `template` are defined in the `components` object
+export const Default = () => ({
   components: { AtomButton },
-  // The story's `args` need to be mapped into the template through the `setup()` method
-  setup() {
-    return { args };
-  },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<atom-button v-bind="args" />'
+  template: `<atom-button>
+	<span class="button__text">Button</span>
+  </atom-button>`
 });
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/vue/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: "Button"
-};
+export const Primary = () => ({
+    components: { AtomButton },
+    template: `<atom-button class="button--primary">
+    <span class="button__text">Button</span>
+    </atom-button>`
+});
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "Button"
-};
+export const Secondary = () => ({
+    components: { AtomButton },
+    template: `<atom-button class="button--secondary">
+		<span class="button__text">Button</span>
+    </atom-button>`
+});
 
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
-  label: "Button"
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: "small",
-  label: "Button"
-};
+export const Tertiary = () => ({
+    components: { AtomButton },
+    template: `<atom-button class="button--link">
+		<span class="button__text">Button</span>
+    </atom-button>`
+});

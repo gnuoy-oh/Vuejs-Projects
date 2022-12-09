@@ -1,53 +1,34 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">
-    {{ label }}
-  </button>
+	<!-- type="submit" 인 경우, id가 필요 -->
+	<button class="button" type="submit" :id="submitId" v-if="submitId">
+		<slot></slot>
+	</button>
+	<!-- 그 외 타입은 id 불필요 -->
+	<button class="button" type="button" @click="handleClick($event)" @mousedown="mouseDown($event)" v-else>
+		<slot></slot>
+	</button>
 </template>
 
 <script>
-import { reactive, computed } from "vue";
-
 export default {
-  name: "atom-button",
-
-  props: {
-    label: {
-      type: String,
-      required: true
-    },
-    primary: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      type: String,
-      validator: function (value) {
-        return ["small", "medium", "large"].indexOf(value) !== -1;
-      }
-    },
-    backgroundColor: {
-      type: String
-    }
-  },
-
-  emits: ["click"],
-
-  setup(props, { emit }) {
-    props = reactive(props);
-    return {
-      classes: computed(() => ({
-        "storybook-button": true,
-        "storybook-button--primary": props.primary,
-        "storybook-button--secondary": !props.primary,
-        [`storybook-button--${props.size || "medium"}`]: true
-      })),
-      style: computed(() => ({
-        backgroundColor: props.backgroundColor
-      })),
-      onClick() {
-        emit("click");
-      }
-    };
-  }
+	name: "AtomButton",
+	props: {
+		submitId: {
+			type: String,
+			default: null
+		}
+	},
+	computed: {},
+	methods: {
+		handleClick($event) {
+			this.$emit("click", $event);
+		},
+		mouseDown($event) {
+			this.$emit("mousedown", $event);
+		}
+	}
 };
 </script>
+
+<style lang="scss">
+</style>
