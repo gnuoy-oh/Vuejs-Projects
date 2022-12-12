@@ -1,0 +1,38 @@
+.storybook-container{
+	margin: $spacing-md;
+}
+.storybook-title{
+	@include font-size('14');
+	@include font-weight('regular');
+	margin-bottom: $spacing-lg;
+	color: $text-01;
+	text-decoration: underline;
+}
+
+.storybook-group{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: rem(200px);
+	position: relative;
+	padding: 2rem 2rem 2.5rem;
+	margin: 1.5rem 0 0;
+	background-color: $ui-02;
+	color: $text-01;
+	border: 1px solid $ui-04;
+	&__title  {
+		@include font-weight('light');
+		@include font-size("12");
+		margin-right: $spacing-lg;
+		width: rem(100px);
+		color: $text-03;
+		white-space: nowrap;
+	}
+
+	.v-group{
+		& > *:not(:last-child) {
+			margin-bottom: $spacing-lg;
+		}
+	}
+}
