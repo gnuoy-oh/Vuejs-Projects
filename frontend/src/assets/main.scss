@@ -1,8 +1,0 @@
-// core
-$img-path: "./style-core/images" !default;
-$font-path: "./style-core/fonts" !default;
-@import "./style-core/scss/core-index.scss";
-
-// products
-$img-path: "./style-product/images" !default;
-@import "./style-product/scss/style-product.scss";
